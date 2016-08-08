@@ -10,7 +10,7 @@ export const styleSheet = createStyleSheet('TestViewer', (theme) => {
     '@raw *, *:before, *:after': { boxSizing: 'inherit' },
     '@raw body': {
       margin: 0,
-      background: palette.background.default,
+      background: '#fff',
       fontFamily: typography.fontFamily,
       color: palette.text.primary,
       lineHeight: '1.2',

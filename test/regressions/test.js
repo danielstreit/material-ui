@@ -51,12 +51,14 @@ function createTest(testPath) {
       const diff = new BlinkDiff({
         imageAPath: baselinePath,
         imageBPath: screenshotPath,
+        imageOutputLimit: BlinkDiff.OUTPUT_DIFFERENT,
         thresholdType: BlinkDiff.THRESHOLD_PERCENT,
-        threshold: 0.01,
+        threshold: 0.001,
+        delta: 20,
         composition: false,
-        hideShift: true,
-        hShift: 2,
-        vShift: 2,
+        hideShift: false,
+        hShift: 0,
+        vShift: 0,
         imageOutputPath: screenshotPath.replace('.png', '-diff.png'),
       });
 
@@ -64,8 +66,16 @@ function createTest(testPath) {
         if (error) {
           throw error;
         } else {
-          // console.log(diff.hasPassed(result.code) ? 'Passed' : 'Failed');
-          client.assert.strictEqual(result.differences, 0, `should have 0 differences, found ${result.differences}.`);
+          client.assert.strictEqual(diff.hasPassed(result.code), true, 'should have passed the diff test');
+          /**
+           * Could include this... but feels like added noise.
+           */
+          // const max = Math.ceil(result.dimension * 0.001);
+          // client.assert.strictEqual(
+          //   result.differences < max,
+          //   true,
+          //   `should have less than ${max}/${result.dimension} differences, found ${result.differences}.`
+          // );
           done();
         }
       });

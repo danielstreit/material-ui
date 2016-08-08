@@ -6,6 +6,8 @@ sudo: true
 dist: trusty
 services:
   - docker
+addons:
+  artifacts: true
 cache:
   directories:
     - node_modules
