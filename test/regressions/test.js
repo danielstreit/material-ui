@@ -73,8 +73,8 @@ function createTest(testPath) {
 
           if (!passed) {
             if (process.env.TRAVIS === true) {
-              const { TRAVIS_BUILD_ID, TRAVIS_JOB_ID } = process.env;
-              const s3Path = `${TRAVIS_BUILD_ID}/${TRAVIS_JOB_ID}/${diffPath.replace(/^.*output\//, '')}`;
+              const { TRAVIS_BUILD_NUMBER, TRAVIS_JOB_NUMBER } = process.env;
+              const s3Path = `${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}/${diffPath.replace(/^.*output\//, '')}`;
               console.error(
                 'Diff Screenshot:',
                 `https://s3.amazonaws.com/mui-test-artifacts/callemall/material-ui/${s3Path}`
