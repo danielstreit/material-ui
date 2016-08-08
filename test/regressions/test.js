@@ -71,7 +71,8 @@ function createTest(testPath) {
           client.assert.strictEqual(passed, true, 'should have passed the diff test');
 
           if (!passed) {
-            if (process.env.TRAVIS === true) {
+            console.log(process.env.TRAVIS);
+            if (process.env.TRAVIS) {
               const { TRAVIS_BUILD_NUMBER, TRAVIS_JOB_NUMBER } = process.env;
               const s3Path = `${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}/${diffPath.replace(/^.*output\//, '')}`;
               console.error(
