@@ -10,11 +10,13 @@ cache:
   directories:
     - node_modules
     - docs/site/node_modules
+    - test/regressions/site/node_modules
 before_install:
   - cd test && docker-compose up -d chrome && cd ../
 
 install:
   - npm install
   - cd docs/site && npm install && cd ../../
+  - cd test/regressions/site && npm install && cd ../../../
 script:
   - ./scripts/run-travis-tests.sh
