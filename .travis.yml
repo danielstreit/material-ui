@@ -7,7 +7,11 @@ dist: trusty
 services:
   - docker
 addons:
-  artifacts: true
+  artifacts:
+    paths:
+    - test/regressions/screenshots/output
+    - test/selenium-output
+    - test/coverage
 cache:
   directories:
     - node_modules
