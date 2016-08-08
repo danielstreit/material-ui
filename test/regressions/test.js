@@ -1,5 +1,4 @@
-// @flow weak
-/* eslint-disable no-console */
+/* eslint-disable flowtype/require-valid-file-annotation,no-console */
 const path = require('path');
 const glob = require('glob');
 const pngCrop = require('png-crop');
