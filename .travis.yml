@@ -10,8 +10,6 @@ addons:
   artifacts:
     paths:
     - test/regressions/screenshots/output
-    - test/selenium-output
-    - test/coverage
 cache:
   directories:
     - node_modules
