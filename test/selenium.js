@@ -66,12 +66,13 @@ function runSeleniumTests({ local = false, browsers = 'chrome', tests = 'test/e2
       }
     );
 
-    child.on('close', () => {
-      console.log('closed!');
-      process.exit(0);
+    child.on('close', (exitCode) => {
+      console.log('closed!', exitCode);
+      process.exit(exitCode);
     });
 
     child.on('error', (childErr) => {
+      console.log(childErr);
       throw childErr;
     });
   }
