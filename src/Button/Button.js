@@ -17,7 +17,7 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
       minWidth: 88,
       height: 36,
       padding: '0px 16px',
-      borderRadius: 2,
+      borderRadius: 0,
       color: palette.text.primary,
       backgroundColor: 'transparent',
       transition: transitions.multi(['background-color', 'box-shadow'], '250ms'),
