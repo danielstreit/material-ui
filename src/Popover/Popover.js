@@ -235,11 +235,11 @@ class Popover extends Component {
 
     const anchorEl = this.props.anchorEl || this.anchorEl;
 
-    if (!this.refs.layer.getLayer()) {
+    if (!this.renderToLayer.getLayer()) {
       return;
     }
 
-    const targetEl = this.refs.layer.getLayer().children[0];
+    const targetEl = this.renderToLayer.getLayer().children[0];
     if (!targetEl) {
       return;
     }
@@ -355,7 +355,7 @@ class Popover extends Component {
           onResize={this.handleResize}
         />
         <RenderToLayer
-          ref="layer"
+          ref={c => this.renderToLayer = c}
           open={this.state.open}
           componentClickAway={this.componentClickAway}
           useLayerForClickAway={this.props.useLayerForClickAway}
